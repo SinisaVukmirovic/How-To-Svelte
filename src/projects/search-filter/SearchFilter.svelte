@@ -1,6 +1,8 @@
 <script>
     import { each } from "svelte/internal";
-import MenuItem from "./components/MenuItem.svelte";
+    import MenuItem from "./components/MenuItem.svelte";
+    import Button from "./components/Button.svelte";
+    import Input from "./components/Input.svelte";
 
     let showMenu = false;
     let inputValue = '';
@@ -15,35 +17,6 @@ import MenuItem from "./components/MenuItem.svelte";
 </script>
 
 <style>
-    .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    }
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-    }
-
-    /* The search field */
-    #myInput {
-    box-sizing: border-box;
-    background-image: url('https://s2.svgbox.net/octicons.svg?ic=search-bold&color=000');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    }
-
-    /* The search field when it gets focus/clicked on */
-    #myInput:focus {outline: 3px solid #ddd;}
-
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
     position: relative;
@@ -68,11 +41,11 @@ import MenuItem from "./components/MenuItem.svelte";
 <h2>Search Filter</h2>
 
 <div class="dropdown">
-    <button on:click={() => showMenu = !showMenu} class="dropbtn">Dropdown</button>
+    <Button on:click={() => showMenu = !showMenu} {showMenu} />
 
     <div id="myDropdown" class="dropdown-content" class:show={showMenu}>
-        <input type="text" placeholder="Search.." autocomplete="off" id="myInput" bind:value={inputValue} on:keyup={filterFunction}>
-
+        <Input bind:inputValue on:keyup={filterFunction} />
+        <!-- menu -->
         {#if filteredItems.length > 0}
             {#each filteredItems as item}
                 <MenuItem label={item} />

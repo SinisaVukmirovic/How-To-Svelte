@@ -1,5 +1,5 @@
 <script>
-	import SearchFilter from './components/search-filter/SearchFilter.svelte';
+	import SearchFilter from './projects/search-filter/SearchFilter.svelte';
 </script>
 
 <main>
