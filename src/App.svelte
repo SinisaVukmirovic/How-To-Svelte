@@ -1,10 +1,13 @@
 <script>
-	export let name;
+	import SearchFilter from './components/search-filter/SearchFilter.svelte';
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+	<h1>How To Svelte</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<hr>
+
+	<SearchFilter />
 </main>
 
 <style>
