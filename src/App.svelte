@@ -1,5 +1,6 @@
 <script>
 	import SearchFilter from './projects/search-filter/SearchFilter.svelte';
+	import Autocomplete from './projects/autocomplete/Autocomplete.svelte';
 </script>
 
 <main>
@@ -8,6 +9,8 @@
 	<hr>
 
 	<SearchFilter />
+
+	<Autocomplete />
 </main>
 
 <style>
