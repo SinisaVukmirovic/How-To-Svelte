@@ -7,25 +7,42 @@
     // when we use store in svelte, we need to subscribe to it, before we can use it
     countriesData.subscribe(items => countries = items);
 
-    let inputValue = '';
-
     let filteredCountries = [];
+
+    let inputValue = '';
+    $: if (!inputValue) {
+        filteredCountries = [];
+    }
     
     const filterCountries = () => {
-        filteredCountries = countries.filter(country => country.startsWith(inputValue));
+        if (inputValue) {
+            filteredCountries = countries.filter(country => country.startsWith(inputValue));
+        }
+    }
+
+    const setInputValue = (country) => {
+        inputValue = country;
+    }
+
+    const submitValue = () => {
+        if (inputValue) {
+            console.log(`${inputValue} is submitted!`);
+        } else {
+            alert('You forgot to choose a country!');
+        }
     }
 </script>
 
 <!-- MarkUp -->
 <h2>Autocomplete</h2>
 <!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off">
+<form autocomplete="off" on:submit|preventDefault={submitValue}>
     <div class="autocomplete" style="width:300px;">
         <input id="myInput" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
 
         <ul class="autocomplete-items-container">
             {#each filteredCountries as country}
-                <Country countryName={country} />
+                <Country countryName={country} on:click={() => setInputValue(country)} />
             {/each}
         </ul>
     </div>

@@ -3,7 +3,7 @@
 </script>
 
 <!-- MarkUp -->
-<li class="autocomplete-item">{countryName}</li>
+<li class="autocomplete-item" on:click>{countryName}</li>
 
 <style>
     .autocomplete-item {
