@@ -7,8 +7,8 @@
 
 <style>
     .autocomplete-item {
-    list-style: none;
-    padding: 10px;
+    text-align: left;
+    padding: 10px 20px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
