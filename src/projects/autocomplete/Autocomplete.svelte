@@ -49,9 +49,28 @@
             alert('You forgot to choose a country!');
         }
     }
+
+    let highlightIndex = null;
+
+    $: highlighterCountry = filteredCountries[highlightIndex];
+
+    const navigateList = (e) => {
+        if (e.key === 'ArrowDown' && highlightIndex < filteredCountries.length - 1) {
+            highlightIndex === null ? highlightIndex = 0 : highlightIndex += 1;
+        } else if (e.key === 'ArrowUp' && highlightIndex !== null) {
+            highlightIndex === 0 ? highlightIndex = filteredCountries.length - 1 : highlightIndex -= 1;
+        } else if (e.key === 'Enter') {
+            setInputValue(highlighterCountry);
+        } else {
+            return;
+        }
+    }
+
 </script>
 
 <!-- MarkUp -->
+<svelte:window on:keydown={navigateList} />
+
 <h2>Autocomplete</h2>
 <!--Make sure the form has the autocomplete function switched off:-->
 <form autocomplete="off" on:submit|preventDefault={submitValue}>
@@ -59,8 +78,8 @@
         <input id="myInput" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
 
         <ul class="autocomplete-items-container">
-            {#each filteredCountries as country}
-                <Country countryName={country} on:click={() => setInputValue(country)} />
+            {#each filteredCountries as country, i}
+                <Country countryName={country} highlighted={i === highlightIndex} on:click={() => setInputValue(country)} />
             {/each}
         </ul>
     </div>
@@ -97,7 +116,8 @@
     z-index: 99;
     padding: 0;
     /*position the autocomplete items to be the same width as the container:*/
-    top: 100%;
+    /* top: 2rem; */
+    top: 50%;
     left: 0;
     right: 0;
     }    

@@ -1,9 +1,10 @@
 <script>
     export let countryName;
+    export let highlighted;
 </script>
 
 <!-- MarkUp -->
-<li class="autocomplete-item" on:click>{@html countryName}</li>
+<li class="autocomplete-item" class:autocomplete-item-active={highlighted} on:click>{@html countryName}</li>
 
 <style>
     .autocomplete-item {
@@ -18,6 +19,11 @@
     background-color: #e9e9e9;
     }
     .autocomplete-item:active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+    }
+    .autocomplete-item-active {
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
     color: #ffffff;
