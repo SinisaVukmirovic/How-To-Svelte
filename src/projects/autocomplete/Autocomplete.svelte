@@ -15,18 +15,36 @@
     }
     
     const filterCountries = () => {
+        let storageArr = [];
         if (inputValue) {
-            filteredCountries = countries.filter(country => country.startsWith(inputValue));
+            filteredCountries = countries.forEach(country => {
+                if (country.toLowerCase().startsWith(inputValue.toLowerCase())) {
+                    storageArr = [...storageArr, makeMatchBold(country)];
+                }
+            });
         }
+        filteredCountries = storageArr;
+    }
+
+    const makeMatchBold = (str) => {
+        let matched = str.substring(0, inputValue.length);
+        let makeBold = `<strong>${matched}</strong>`;
+        let boldedMatch = str.replace(matched, makeBold);
+        return boldedMatch;
+    }
+
+    const removeBold = (str) => {
+        return str.replace(/<(.)*?>/g, '');
     }
 
     const setInputValue = (country) => {
-        inputValue = country;
+        inputValue = removeBold(country);
     }
 
     const submitValue = () => {
         if (inputValue) {
             console.log(`${inputValue} is submitted!`);
+            inputValue = '';
         } else {
             alert('You forgot to choose a country!');
         }
