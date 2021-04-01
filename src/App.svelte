@@ -1,6 +1,7 @@
 <script>
 	import SearchFilter from './projects/search-filter/SearchFilter.svelte';
 	import Autocomplete from './projects/autocomplete/Autocomplete.svelte';
+	import SlideshowGallery from './projects/slideshow-gallery/SlideshowGallery.svelte';
 </script>
 
 <main>
@@ -11,6 +12,8 @@
 	<SearchFilter />
 
 	<Autocomplete />
+
+	<SlideshowGallery />
 </main>
 
 <style>
