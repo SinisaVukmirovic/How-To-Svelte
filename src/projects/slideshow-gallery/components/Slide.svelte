@@ -1,12 +1,17 @@
 <script>
-
+    export let image;
+    export let attr;
+    export let alt;
+    export let totalSlides;
+    export let slideNumber;
+    export let imageShowing;
 </script>
 
 <!-- MarkUp -->
 <!-- Full-width images with number text -->
-<div class="mySlides">
-    <div class="numbertext">1 / 6</div>
-      <img src="https://www.w3schools.com/howto/img_woods_wide.jpg" title="svelte.dev" alt="Green Nature">
+<div class="mySlides" class:show={imageShowing}>
+    <div class="numbertext">{slideNumber} / {totalSlides}</div>
+    <img src={image} title={attr} alt={alt}>
 </div>
 
 <style>
@@ -24,5 +29,8 @@
 }
 img {
     width: 100%;
+}
+.show {
+  display: block;
 }
 </style>

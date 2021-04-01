@@ -75,7 +75,7 @@
 <!--Make sure the form has the autocomplete function switched off:-->
 <form autocomplete="off" on:submit|preventDefault={submitValue}>
     <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
+        <input id="myInputAutocomplete" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
 
         <ul class="autocomplete-items-container">
             {#each filteredCountries as country, i}

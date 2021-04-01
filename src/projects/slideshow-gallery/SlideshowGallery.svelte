@@ -1,20 +1,23 @@
 <script>
-    import Slide from './components/Slide.svelte';
+    import { images } from './data/images';
 
-    const images = [
-        {
-            id: 0,
-            name: 'Green Nature',
-            imgUrl: 'https://www.w3schools.com/howto/img_woods_wide.jpg',
-            attribution: 'svelte.dev'
-        }
-    ];
+    import Slide from './components/Slide.svelte';
+    import { attr } from 'svelte/internal';
+
+    let imageShowIndex = 3;
+    $: console.log(imageShowIndex);
 </script>
 
 <!-- MarkUp -->
+<h2>Slideshow Gallery</h2>
 <!-- Container for the image gallery -->
 <div class="container">
-    <Slide />
+    {#each images as { id, name, imgUrl, attribution }}
+        <Slide image={imgUrl} attr={attribution} alt={name} 
+        slideNumber={id + 1} 
+        totalSlides={images.lenght} 
+        imageShowing={id === imageShowIndex} />
+    {/each}
 </div>
 
 <style>
