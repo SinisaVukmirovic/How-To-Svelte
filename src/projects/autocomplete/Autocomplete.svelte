@@ -106,6 +106,7 @@
     input[type=submit] {
     background-color: DodgerBlue;
     color: #fff;
+    cursor: pointer;
     }
     .autocomplete-items-container {
     position: absolute;
