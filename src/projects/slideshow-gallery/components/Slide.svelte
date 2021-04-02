@@ -15,22 +15,16 @@
 </div>
 
 <style>
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
   padding: 8px 12px;
   position: absolute;
   top: 0;
 }
 img {
     width: 100%;
-}
-.show {
-  display: block;
 }
 </style>

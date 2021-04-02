@@ -13,7 +13,7 @@
 .caption-container {
   text-align: center;
   background-color: #222;
-  padding: 2px 16px;
+  padding: 20px 0;
   color: white;
 }
 </style>

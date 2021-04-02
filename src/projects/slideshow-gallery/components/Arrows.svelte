@@ -13,6 +13,7 @@
 /* Next & previous buttons */
 .prev,
 .next {
+  text-decoration: none;
   cursor: pointer;
   position: absolute;
   top: 50%;
