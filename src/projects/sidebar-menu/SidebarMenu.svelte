@@ -1,15 +1,27 @@
 <script>
-    let navWidth = 0;
+    // let navWidth = 0;
     let navOpen = false;
 
     const handleMenu = () => {
         navOpen = !navOpen;
-        navOpen ? navWidth = 50 : navWidth = 0;
+        // navOpen ? navWidth = 50 : navWidth = 0;
+    }
+
+    const openMenuByKey = (e) => {
+        console.log(e.code);
+        if (e.code === 'IntlBackslash') {
+            navOpen = !navOpen;
+        }
     }
 </script>
 
 <!-- MarkUp -->
-<div id="mySidenav" class="sidenav" style="width: {navWidth}%">
+<svelte:window on:keydown={openMenuByKey}/>
+
+<h2>Sidebar Menu</h2>
+<p>You can also toggle the opening of the sidebar menu by pressing the "\" (IntlBackslash) key on the keyboard!</p>
+
+<div id="mySidenav" class="sidenav" class:openMenu={navOpen}>
     <a href="#closer" class="closebtn" on:click={handleMenu}>&times;</a>
     <a href="#a">About</a>
     <a href="#s">Services</a>
@@ -20,29 +32,26 @@
 <!-- Use any element to open the sidenav -->
 <span on:click={handleMenu}>
     {#if !navOpen} 
-        <img src="https://s2.svgbox.net/hero-solid.svg?ic=menu&color=000" width="42" height="42">
+        <img src="https://s2.svgbox.net/hero-solid.svg?ic=menu&color=000" alt="Menu Icon">
     {:else}
-        <img src="https://s2.svgbox.net/hero-solid.svg?ic=x&color=000" width="42" height="42">
+        <img src="https://s2.svgbox.net/hero-solid.svg?ic=x&color=000" alt="Close Icon">
     {/if}
 </span>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-...
-</div>
 
 <style>
     span {
         position: absolute;
         right: 5%;
         margin-top: 5%;
+        width: 40px;
+        height: auto;
         cursor: pointer;
     }
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
   /* 0 width - change this with JavaScript */
-  /* width: 0;  */
+  width: 0; 
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -75,6 +84,10 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.openMenu {
+    width: 50%;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
