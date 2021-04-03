@@ -2,6 +2,7 @@
 	import SearchFilter from './projects/search-filter/SearchFilter.svelte';
 	import Autocomplete from './projects/autocomplete/Autocomplete.svelte';
 	import SlideshowGallery from './projects/slideshow-gallery/SlideshowGallery.svelte';
+	import SidebarMenu from './projects/sidebar-menu/SidebarMenu.svelte';
 </script>
 
 <main>
@@ -14,6 +15,8 @@
 	<Autocomplete />
 
 	<SlideshowGallery />
+
+	<SidebarMenu />
 </main>
 
 <style>
