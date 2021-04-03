@@ -3,6 +3,7 @@
 	import Autocomplete from './projects/autocomplete/Autocomplete.svelte';
 	import SlideshowGallery from './projects/slideshow-gallery/SlideshowGallery.svelte';
 	import SidebarMenu from './projects/sidebar-menu/SidebarMenu.svelte';
+	import ProgressBar from './projects/progress-bar/ProgressBar.svelte';
 </script>
 
 <main>
@@ -17,6 +18,8 @@
 	<SlideshowGallery />
 
 	<SidebarMenu />
+
+	<ProgressBar />
 </main>
 
 <style>

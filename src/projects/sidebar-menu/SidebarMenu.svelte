@@ -8,7 +8,7 @@
     }
 
     const openMenuByKey = (e) => {
-        console.log(e.code);
+        // console.log(e.code);
         if (e.code === 'IntlBackslash') {
             navOpen = !navOpen;
         }
@@ -18,31 +18,37 @@
 <!-- MarkUp -->
 <svelte:window on:keydown={openMenuByKey}/>
 
-<h2>Sidebar Menu</h2>
-<p>You can also toggle the opening of the sidebar menu by pressing the "\" (IntlBackslash) key on the keyboard!</p>
-
-<div id="mySidenav" class="sidenav" class:openMenu={navOpen}>
-    <a href="#closer" class="closebtn" on:click={handleMenu}>&times;</a>
-    <a href="#a">About</a>
-    <a href="#s">Services</a>
-    <a href="#c">Clients</a>
-    <a href="#d">Contact</a>
-</div>
+<section>
+  <h2>Sidebar Menu</h2>
   
-<!-- Use any element to open the sidenav -->
-<span on:click={handleMenu}>
+  <!-- Use any element to open the sidenav -->
+  <span on:click={handleMenu}>
     {#if !navOpen} 
         <img src="https://s2.svgbox.net/hero-solid.svg?ic=menu&color=000" alt="Menu Icon">
     {:else}
         <img src="https://s2.svgbox.net/hero-solid.svg?ic=x&color=000" alt="Close Icon">
     {/if}
-</span>
+  </span>
+  
+  <p>You can also toggle the opening of the sidebar menu by pressing the "\" (IntlBackslash) key on the keyboard!</p>
+  
+  <div id="mySidenav" class="sidenav" class:openMenu={navOpen}>
+      <a href="#closer" class="closebtn" on:click={handleMenu}>&times;</a>
+      <a href="#a">About</a>
+      <a href="#s">Services</a>
+      <a href="#c">Clients</a>
+      <a href="#d">Contact</a>
+  </div>
+</section>
 
 <style>
+  section {
+    position: relative;
+  }
     span {
         position: absolute;
         right: 5%;
-        margin-top: 5%;
+        top: 0;
         width: 40px;
         height: auto;
         cursor: pointer;
@@ -88,17 +94,5 @@
 
 .openMenu {
     width: 50%;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
 </style>
