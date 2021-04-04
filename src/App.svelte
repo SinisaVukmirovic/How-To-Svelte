@@ -26,7 +26,7 @@
 	<h2>Lightbox</h2>
 	<button on:click={() => lightboxOpen = !lightboxOpen}>Lightbox</button>
 	{#if lightboxOpen}
-		<Lightbox />
+		<Lightbox on:click={() => lightboxOpen = !lightboxOpen}/>
 	{/if}
 </main>
 
