@@ -10,7 +10,7 @@
     import Arrows from '../slideshow-gallery/components/Arrows.svelte';
     import Thumbnails from '../slideshow-gallery/components/Thumbnails.svelte';
 
-    let imageShowIndex = 3;
+    export let imageShowIndex = 0;
     // $: console.log(imageShowIndex);
     $: image = images[imageShowIndex];
 
@@ -23,9 +23,7 @@
         return imageShowIndex += 1;
     }
 
-    const showClickedSlide = (idNumb) => {
-        imageShowIndex = idNumb;
-    }
+    const goToSlide = (slideID) => imageShowIndex = Number(slideID);
 </script>
 
 <!-- MarkUp -->
@@ -49,7 +47,7 @@
         <div class="thumbnails-row">
             {#each images as { id, imgUrl, name }}
                 <Thumbnails thumbImg={imgUrl} altTag={name} selected={id === imageShowIndex} 
-                    on:click={() => showClickedSlide(id)} />
+                    on:click={() => goToSlide(id)} />
             {/each}
         </div>
     </div>

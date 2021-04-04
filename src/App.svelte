@@ -6,6 +6,13 @@
 	import ProgressBar from './projects/progress-bar/ProgressBar.svelte';
 	import Lightbox from './projects/lightbox/Lightbox.svelte';
 	let lightboxOpen = false;
+	import ImageDisplay from './projects/lightbox/ImageDisplay.svelte';
+	let imageShowIndex = 0;
+	const showClickedSlide = (e) => {
+		console.log(e.target.id);
+		imageShowIndex = Number(e.target.id);
+		lightboxOpen = true;
+	}
 </script>
 
 <main>
@@ -26,7 +33,9 @@
 	<h2>Lightbox</h2>
 	<button on:click={() => lightboxOpen = !lightboxOpen}>Lightbox</button>
 	{#if lightboxOpen}
-		<Lightbox on:click={() => lightboxOpen = !lightboxOpen}/>
+		<Lightbox on:click={() => lightboxOpen = !lightboxOpen} {imageShowIndex}/>
+	{:else}
+		<ImageDisplay on:click={showClickedSlide} />
 	{/if}
 </main>
 
