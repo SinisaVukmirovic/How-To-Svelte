@@ -4,6 +4,8 @@
 	import SlideshowGallery from './projects/slideshow-gallery/SlideshowGallery.svelte';
 	import SidebarMenu from './projects/sidebar-menu/SidebarMenu.svelte';
 	import ProgressBar from './projects/progress-bar/ProgressBar.svelte';
+	import Lightbox from './projects/lightbox/Lightbox.svelte';
+	let lightboxOpen = false;
 </script>
 
 <main>
@@ -20,6 +22,12 @@
 	<SidebarMenu />
 
 	<ProgressBar />
+
+	<h2>Lightbox</h2>
+	<button on:click={() => lightboxOpen = !lightboxOpen}>Lightbox</button>
+	{#if lightboxOpen}
+		<Lightbox />
+	{/if}
 </main>
 
 <style>
