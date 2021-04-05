@@ -1,6 +1,7 @@
 <script>
     export let heading;
     export let content;
+    export let learnMore;
 
     let isOpen = false;
 </script>
@@ -16,6 +17,11 @@
 </button>
 <div class="panel" class:open-panel={isOpen}>
   <p>{content}</p>
+
+  <div class="more-options">
+      <button on:click>Map</button>
+      <a href={learnMore}>Learn More</a>
+  </div>
 </div>
 
 <style>
@@ -46,12 +52,17 @@
   padding: 0 18px;
   background-color: white;
   max-height: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   transition: max-height 0.2s ease-out;
 }
 
 .open-panel {
-    max-height: 200px;
+    max-height: 150px;
+}
+
+button {
+    padding: .5rem 1.5rem;
+    cursor: pointer;
 }
 
 .accordion .icon {
@@ -59,5 +70,11 @@
   line-height: .75;
   color: #777;
   float: right;
+}
+
+.more-options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 </style>
