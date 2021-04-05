@@ -5,6 +5,7 @@
 	import SidebarMenu from './projects/sidebar-menu/SidebarMenu.svelte';
 	import ProgressBar from './projects/progress-bar/ProgressBar.svelte';
 	import Lightbox from './projects/lightbox/Lightbox.svelte';
+	
 	let lightboxOpen = false;
 	import ImageDisplay from './projects/lightbox/ImageDisplay.svelte';
 	let imageShowIndex = 0;
@@ -13,6 +14,9 @@
 		imageShowIndex = Number(e.target.id);
 		lightboxOpen = true;
 	}
+
+	import Accordion from './projects/accordion/Accordion.svelte';
+
 </script>
 
 <main>
@@ -37,6 +41,8 @@
 	{:else}
 		<ImageDisplay on:click={showClickedSlide} />
 	{/if}
+
+	<Accordion />
 </main>
 
 <style>
