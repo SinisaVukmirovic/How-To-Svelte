@@ -24,17 +24,29 @@
     let inputTextCharacters = '';
     let indexForInput = 0;
     let inputTypewritter;
+    let isTyping = false;
+
+    $: if (!inputPhrase) {
+        inputTextCharacters = '';
+        indexForInput = 0;
+    }
 
     const typeInputText = () => {
         if (indexForInput < inputPhrase.length) {
             inputTextCharacters += inputPhrase[indexForInput];
             indexForInput += 1;
+            isTyping = true;
         } else {
-            clearInterval(inputTypewritter);
+            stopTyping();
         }
     }
 
     const typingOfInput = () => inputTypewritter = setInterval(typeInputText, 150);
+
+    const stopTyping = () => {
+        clearInterval(inputTypewritter);
+        isTyping = false;
+    }
 
 </script>
 
@@ -46,10 +58,11 @@
 
 <form on:submit|preventDefault={typingOfInput}>
     <input type="text" placeholder="Type out what you want.." bind:value={inputPhrase} />
-    <button>Start</button>
+    <button disabled={isTyping}>Start</button>
+    <button on:click|preventDefault|stopPropagation={stopTyping}>Stop</button>
 </form>
 
-<h3>{typedCharacters}</h3>
+<h3>{inputTextCharacters}</h3>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
