@@ -16,6 +16,7 @@
 	}
 
 	import Accordion from './projects/accordion/Accordion.svelte';
+	import Typewritter from './projects/typewritter/Typewritter.svelte';
 
 </script>
 
@@ -43,6 +44,8 @@
 	{/if}
 
 	<Accordion />
+
+	<Typewritter />
 </main>
 
 <style>
