@@ -17,6 +17,7 @@
 
 	import Accordion from './projects/accordion/Accordion.svelte';
 	import Typewritter from './projects/typewritter/Typewritter.svelte';
+	import Portfolio from './projects/portfolio/Portfolio.svelte';
 
 </script>
 
@@ -46,6 +47,8 @@
 	<Accordion />
 
 	<Typewritter />
+
+	<Portfolio />
 </main>
 
 <style>
