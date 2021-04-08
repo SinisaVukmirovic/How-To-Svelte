@@ -29,6 +29,7 @@
         {#if selected === 'all'}
             <div class="column {key} show">
                 <div class="content">
+                    <h5>{key}</h5>
                     <img src={url} alt={name} style="width:100%">
                     <h4>{name}</h4>
                     <p>{desc}</p>
@@ -37,6 +38,7 @@
         {:else}
             <div class="column {key}" class:show={selected === key}>
                 <div class="content">
+                    <h5>{key}</h5>
                     <img src={url} alt={name} style="width:100%">
                     <h4>{name}</h4>
                     <p>{desc}</p>
