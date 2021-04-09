@@ -1,5 +1,6 @@
 <script>
     import { images } from './data/img-data.js';
+    
     import Buttons from './components/Buttons.svelte';
     import Gallery from './components/Gallery.svelte';
 
