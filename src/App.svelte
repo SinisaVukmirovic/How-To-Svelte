@@ -18,6 +18,7 @@
 	import Accordion from './projects/accordion/Accordion.svelte';
 	import Typewritter from './projects/typewritter/Typewritter.svelte';
 	import Portfolio from './projects/portfolio/Portfolio.svelte';
+	import VideoFloat from './projects/video-float/VideoFloat.svelte';
 
 </script>
 
@@ -33,6 +34,8 @@
 	<SlideshowGallery />
 
 	<SidebarMenu />
+
+	<VideoFloat />
 
 	<ProgressBar />
 
