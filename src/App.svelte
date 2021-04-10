@@ -24,7 +24,7 @@
 
 <main>
 	<h1>How To Svelte</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p>Visit the<a href="https://www.youtube.com/channel/UCoYGF_kcmubmm_3Xk_2PYCg/videos">SixStringsCoder YT</a> for these tutorials.</p>
 	<hr>
 
 	<SearchFilter />
