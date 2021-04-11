@@ -11,20 +11,25 @@
 </script>
 
 <!-- MarkUp -->
-<div id="video-cont" class="video-cont" class:float={floatVideo} bind:this={videoContainer}>
-    {#if floatVideo}
-        <div id="close-icon" on:click={removeFloatVideo}>X</div>
-    {/if}
-	
-	<video class="vid-player" controls class:sm-player={floatVideo} bind:this={smallVideo}>	
-		<track kind="captions" />
-		<source src="https://media.istockphoto.com/videos/time-lapse-sunrise-over-mountain-with-mist-and-fog-cloud-video-id1125217870" type="video/webm">
-		<source src="https://media.istockphoto.com/videos/time-lapse-sunrise-over-mountain-with-mist-and-fog-cloud-video-id1125217870" type="video/mp4"> 
-			Sorry, your browser doesn't support embedded videos.
-	</video>	
-</div>
+<section>
+	<div id="video-cont" class="video-cont" class:float={floatVideo} bind:this={videoContainer}>
+		{#if floatVideo}
+			<div id="close-icon" on:click={removeFloatVideo}>X</div>
+		{/if}
+		
+		<video class="vid-player" controls class:sm-player={floatVideo} bind:this={smallVideo}>	
+			<track kind="captions" />
+			<source src="https://media.istockphoto.com/videos/time-lapse-sunrise-over-mountain-with-mist-and-fog-cloud-video-id1125217870" type="video/webm">
+			<source src="https://media.istockphoto.com/videos/time-lapse-sunrise-over-mountain-with-mist-and-fog-cloud-video-id1125217870" type="video/mp4"> 
+				Sorry, your browser doesn't support embedded videos.
+		</video>	
+	</div>
+</section>
 
 <style>
+	section {
+		min-height: 30rem;
+	}
     .video-cont {
 		max-width: 70%;
         margin: 0 auto 2rem;

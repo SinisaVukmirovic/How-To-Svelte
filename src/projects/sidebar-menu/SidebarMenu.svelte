@@ -59,7 +59,7 @@
   /* 0 width - change this with JavaScript */
   width: 0; 
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 11; /* Stay on top */
   top: 0;
   left: 0;
   background-color: #111; /* Black*/
