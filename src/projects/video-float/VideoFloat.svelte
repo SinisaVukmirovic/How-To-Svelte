@@ -3,7 +3,7 @@
 
     let y;
     // $: console.log(y);
-    $: (y > 1500) ? floatVideo = true : floatVideo = false;
+    $: (y > 2500) ? floatVideo = true : floatVideo = false;
 
     let floatVideo = false;
 </script>
