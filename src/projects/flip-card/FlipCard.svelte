@@ -1,5 +1,13 @@
 <script>
+    import { cards } from './data/cards-data';
+
     let flipCard = false;
+
+    let flipCardIndex = 0;
+
+    $: hero = cards[flipCardIndex].hero;
+    $: avatar = cards[flipCardIndex].avatar;
+    $: details = cards[flipCardIndex].details;
 
     const toggleFlipCard = () => flipCard = !flipCard;
 </script>
@@ -9,25 +17,30 @@
 
 <div class="flip-box">
     <div class="flip-box-inner" class:flipCard={flipCard}>
+
       <div class="flip-box-front">
-        <h2>Front Side</h2>
+        <h4>{hero}</h4>
+        <img src={avatar} alt="Hero Avatar">
       </div>
+
       <div class="flip-box-back">
-        <h2>Back Side</h2>
+            {#each details as detail}
+                <p>{detail}</p>
+            {/each}
       </div>
     </div>
 </div>
 
 <div class="btn-container">
-    <button on:click={toggleFlipCard}>{flipCard ? 'Frontface' : 'Backface'}</button>
+    <button on:click={toggleFlipCard}>{flipCard ? 'Hide Details' : 'Show Details'}</button>
 </div>
 
 <style>
 .flip-box {
     margin: 2rem auto;
   background-color: transparent;
-  width: 500px;
-  height: 400px;
+  width: 350px;
+  height: 250px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
@@ -54,6 +67,10 @@
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Style the front side */
