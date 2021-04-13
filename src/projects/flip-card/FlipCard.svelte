@@ -1,6 +1,8 @@
 <script>
     import { cards } from './data/cards-data';
 
+    import Card from './components/Card.svelte';
+
     let flipCard = false;
 
     let flipCardIndex = 0;
@@ -10,6 +12,24 @@
     $: details = cards[flipCardIndex].details;
 
     const toggleFlipCard = () => flipCard = !flipCard;
+
+    const prevCard = () => {
+		flipCard = false;
+		if (flipCardIndex === 0) {
+			flipCardIndex = cards.length - 1;
+		} else {
+			flipCardIndex -= 1;
+		}
+	}
+	
+	const nextCard = () => {
+		flipCard = false;
+		if (flipCardIndex === cards.length - 1) {
+			flipCardIndex = 0;
+		} else {
+			flipCardIndex += 1;
+		}	
+	}
 </script>
 
 <!-- MarkUp -->
@@ -18,21 +38,15 @@
 <div class="flip-box">
     <div class="flip-box-inner" class:flipCard={flipCard}>
 
-      <div class="flip-box-front">
-        <h4>{hero}</h4>
-        <img src={avatar} alt="Hero Avatar">
-      </div>
-
-      <div class="flip-box-back">
-            {#each details as detail}
-                <p>{detail}</p>
-            {/each}
-      </div>
+      <Card {avatar} {hero} {flipCard} {details} />
+      
     </div>
 </div>
 
 <div class="btn-container">
+    <button class="arrow-btn" on:click={prevCard}>&#8592;</button>
     <button on:click={toggleFlipCard}>{flipCard ? 'Hide Details' : 'Show Details'}</button>
+    <button class="arrow-btn" on:click={nextCard}>&#8594;</button>
 </div>
 
 <style>
@@ -60,29 +74,5 @@
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
-.flip-box-front, .flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-/* Style the front side */
-.flip-box-front {
-  background-color: #bbb;
-  color: black;
-}
-
-/* Style the back side */
-.flip-box-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-}
 </style>
