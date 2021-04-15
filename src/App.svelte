@@ -20,6 +20,7 @@
 	import Portfolio from './projects/portfolio/Portfolio.svelte';
 	import VideoFloat from './projects/video-float/VideoFloat.svelte';
 	import FlipCard from './projects/flip-card/FlipCard.svelte';
+	import QuoteRotator from './projects/quote-rotator/QuoteRotator.svelte'
 
 </script>
 
@@ -55,6 +56,8 @@
 	<Portfolio />
 
 	<FlipCard />
+
+	<QuoteRotator />
 </main>
 
 <style>
