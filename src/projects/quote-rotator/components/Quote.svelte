@@ -18,6 +18,9 @@
   text-align: center;
 }
 
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
 /* Add a blue color to the author */
 .author {color: cornflowerblue;}
 </style>

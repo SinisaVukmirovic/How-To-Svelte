@@ -2,6 +2,7 @@
     import { quotes } from './data/quoteData';
 
     import Quote from './components/Quote.svelte';
+    import Dot from './components/Dot.svelte';
 
     let quoteIndex = 0;
     $: console.log(quoteIndex);
@@ -9,12 +10,21 @@
     $: author = quotes[quoteIndex].author;
 
     const prevQuote = () => {
-        quoteIndex -= 1;
+        if (quoteIndex === 0) {
+			quoteIndex = quotes.length-1;
+		} else {
+			quoteIndex -= 1;
+		}	
     }
 
     const nextQuote = () => {
-        quoteIndex += 1;
+        if (quoteIndex === quotes.length-1) {
+			quoteIndex = 0;
+		} else {
+			quoteIndex += 1;
+		}	
     }
+
 </script>
 
 <!-- MarkUp -->
@@ -31,9 +41,9 @@
   
   <!-- Dots/bullets/indicators -->
   <div class="dot-container">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+      {#each Array(quotes.length) as _, i}
+        <Dot {quoteIndex} counter={i} on:click={() => quoteIndex = i} />
+      {/each}
   </div>
 
 <style>
@@ -41,6 +51,9 @@
 .slideshow-container {
   position: relative;
   background: #f1f1f1f1;
+  width: 90%;
+  max-width: 50rem;
+  margin: 0 auto;
 }
 
 /* Next & previous buttons */
@@ -79,29 +92,11 @@
 /* The dot/bullet/indicator container */
 .dot-container {
   text-align: center;
-  padding: 20px;
   background: #ddd;
+  width: 90%;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 20px 0;
 }
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-/* Add a background color to the active dot/circle */
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Add an italic font style to all quotes */
-q {font-style: italic;}
-
 
 </style>
