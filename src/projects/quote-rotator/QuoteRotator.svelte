@@ -4,7 +4,6 @@
     import Quote from './components/Quote.svelte';
     import Dot from './components/Dot.svelte';
     import ToggleBtn from './components/ToggleBtn.svelte';
-import { setInterval } from 'node:timers';
 
     let quoteIndex = 0;
     $: console.log(quoteIndex);
@@ -12,11 +11,11 @@ import { setInterval } from 'node:timers';
     $: author = quotes[quoteIndex].author;
 
     const prevQuote = () => {
-        if (quoteIndex === 0) {
-			quoteIndex = quotes.length-1;
-		} else {
-			quoteIndex -= 1;
-		}	
+      if (quoteIndex === 0) {
+        quoteIndex = quotes.length-1;
+      } else {
+        quoteIndex -= 1;
+      }	
     }
 
     const nextQuote = () => {
@@ -32,8 +31,13 @@ import { setInterval } from 'node:timers';
     let autoPlaying = false;
 
     const handleAutoplay = () => {
-        if (toggleOn) {
-          setInterval(nextQuote, 1000);
+      if (toggleOn) {
+        autoPlay = setInterval(nextQuote, 3000);
+        autoPlaying = true;
+      }
+      else {
+        clearInterval(autoPlay);
+        autoPlaying = false;
       }
     }
 </script>
@@ -43,17 +47,19 @@ import { setInterval } from 'node:timers';
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
-    <Quote {quote} {author} />
+    {#key quote}
+      <Quote {quote} {author} />
+    {/key}
   
     <!-- Next/prev buttons -->
-    <span class="prev" on:click={prevQuote}>&#10094;</span>
-    <span class="next" on:click={nextQuote}>&#10095;</span>
+    <span class="prev" class:disabled={autoPlaying} on:click={prevQuote}>&#10094;</span>
+    <span class="next" class:disabled={autoPlaying} on:click={nextQuote}>&#10095;</span>
   </div>
   
   <!-- Dots/bullets/indicators -->
   <div class="dot-container">
       {#each Array(quotes.length) as _, i}
-        <Dot {quoteIndex} counter={i} on:click={() => quoteIndex = i} />
+        <Dot {quoteIndex} {autoPlaying} counter={i} on:click={() => quoteIndex = i} />
       {/each}
 
       <ToggleBtn bind:toggleOn on:change={handleAutoplay} />
@@ -115,4 +121,7 @@ import { setInterval } from 'node:timers';
   align-items: center;
 }
 
+.disabled {
+  pointer-events: none;
+}
 </style>

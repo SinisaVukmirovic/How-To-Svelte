@@ -1,10 +1,12 @@
 <script>
     export let quoteIndex;
     export let counter;
+    export let autoPlaying;
 </script>
 
 <!-- MarkUp -->
-<span class="dot" class:active={quoteIndex === counter} on:click></span>
+<span class="dot" class:active={quoteIndex === counter} 
+class:disabled={autoPlaying} on:click></span>
 
 <style>
     /* The dots/bullets/indicators */
@@ -22,5 +24,9 @@
 /* Add a background color to the active dot/circle */
 .active, .dot:hover {
   background-color: #717171;
+}
+
+.disabled {
+  pointer-events: none;
 }
 </style>

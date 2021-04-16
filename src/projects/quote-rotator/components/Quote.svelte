@@ -1,11 +1,13 @@
 <script>
+    import { fade } from 'svelte/transition';
+
     export let quote;
     export let author;
 </script>
 
 <!-- MarkUp -->
 <!-- Full-width slides/quotes -->
-<div class="mySlides">
+<div class="mySlides" transition:fade>
     <q>{quote}</q>
     <p class="author">&mdash;{author}</p>
   </div>
