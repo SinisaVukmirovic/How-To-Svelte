@@ -3,6 +3,8 @@
 
     import Quote from './components/Quote.svelte';
     import Dot from './components/Dot.svelte';
+    import ToggleBtn from './components/ToggleBtn.svelte';
+import { setInterval } from 'node:timers';
 
     let quoteIndex = 0;
     $: console.log(quoteIndex);
@@ -18,13 +20,22 @@
     }
 
     const nextQuote = () => {
-        if (quoteIndex === quotes.length-1) {
-			quoteIndex = 0;
-		} else {
-			quoteIndex += 1;
-		}	
+      if (quoteIndex === quotes.length-1) {
+        quoteIndex = 0;
+      } else {
+        quoteIndex += 1;
+      }	
     }
 
+    let toggleOn = false;
+    let autoPlay;
+    let autoPlaying = false;
+
+    const handleAutoplay = () => {
+        if (toggleOn) {
+          setInterval(nextQuote, 1000);
+      }
+    }
 </script>
 
 <!-- MarkUp -->
@@ -44,6 +55,8 @@
       {#each Array(quotes.length) as _, i}
         <Dot {quoteIndex} counter={i} on:click={() => quoteIndex = i} />
       {/each}
+
+      <ToggleBtn bind:toggleOn on:change={handleAutoplay} />
   </div>
 
 <style>
@@ -97,6 +110,9 @@
   max-width: 50rem;
   margin: 0 auto;
   padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 </style>
