@@ -6,7 +6,7 @@
     import ToggleBtn from './components/ToggleBtn.svelte';
 
     let quoteIndex = 0;
-    $: console.log(quoteIndex);
+    // $: console.log(quoteIndex);
     $: quote = quotes[quoteIndex].quote;
     $: author = quotes[quoteIndex].author;
 

@@ -80,7 +80,7 @@
 		box-shadow: 0 0 7px darkgray;
 		background-color: #000;
 		position: fixed;
-		bottom: 1%;
+		top: 1%;
 		right: 1%;
 	}
 </style>
