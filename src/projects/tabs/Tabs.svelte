@@ -36,7 +36,7 @@
   background-color: #555;
   color: white;
   float: left;
-  border: none;
+  border: 1px solid #ccc;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
