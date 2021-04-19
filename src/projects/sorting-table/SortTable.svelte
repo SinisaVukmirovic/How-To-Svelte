@@ -1,15 +1,41 @@
 <script>
   import { personData } from './data/person-data.js';
-  console.log(personData);
+  // console.log(personData);
 
   const tableHeaders = Object.keys(personData[0]);
 
   let sortedPersonData = personData;
 
-  const sortByNumber = (tebleHeader) => {
+  let selected = 'id';
+  
+	let ascendingOrder = true;
+
+  const sortByNumber = (tableHeader) => {
     sortedPersonData = sortedPersonData.sort((obj1, obj2) => {
-      return obj1[tebleHeader] - obj2[tebleHeader];
+      return ascendingOrder ? Number(obj1[tableHeader]) - Number(obj2[tableHeader])
+			: Number(obj2[tableHeader]) - Number(obj1[tableHeader]);
     });
+
+    selected = tableHeader;
+  }
+
+  const sortByString = (tableHeader) => {
+    sortedPersonData = sortedPersonData.sort((obj1, obj2) => {
+      if (obj1[tableHeader] < obj2[tableHeader]) {
+        return -1;
+      }
+      else if (obj1[tableHeader] > obj2[tableHeader]) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    if (!ascendingOrder) {
+			sortedPersonData = sortedPersonData.reverse()
+		}
+
+    selected = tableHeader;
   }
 </script>
 
@@ -17,7 +43,16 @@
 <table id="myTable">
     <tr>
       {#each tableHeaders as header}
-        <th on:click={() => sortByNumber(header)}>{header.replace("_", " ")}</th>
+        <th class:highlight={selected === header}
+          on:click={() => (header === "id" || header === "age" ? sortByNumber(header) : sortByString(header))}>
+            {header.replace("_", " ")}
+
+            {#if header === selected}	
+              <span class="order-icon" on:click={() => ascendingOrder = !ascendingOrder}>
+                {@html ascendingOrder ? "&#10515;" : "&#10514;"}
+              </span>		
+            {/if}	
+        </th>
       {/each}
     </tr>
 
@@ -43,7 +78,12 @@ table {
 
 th {
   text-transform: uppercase;
+  font-weight: bold;
   cursor: pointer;
+}
+
+.highlight {
+  color: crimson;
 }
 
 th, td {
