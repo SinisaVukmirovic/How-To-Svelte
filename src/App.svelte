@@ -22,6 +22,7 @@
 	import FlipCard from './projects/flip-card/FlipCard.svelte';
 	import QuoteRotator from './projects/quote-rotator/QuoteRotator.svelte';
 	import Tabs from './projects/tabs/Tabs.svelte';
+	import SortTable from './projects/sorting-table/SortTable.svelte';
 
 </script>
 
@@ -61,6 +62,8 @@
 	<QuoteRotator />
 
 	<Tabs />
+
+	<SortTable />
 </main>
 
 <style>
