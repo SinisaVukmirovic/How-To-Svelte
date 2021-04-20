@@ -5,32 +5,37 @@
         {
             framework: 'Svelte',
             percent: 95,
-            color: 'coral'
+            color: 'coral',
+            delay: 1000
         },
         {
             framework: 'Vue',
-            percent: 60,
-            color: 'lime'
+            percent: 70,
+            color: 'lime',
+            delay: 750
         },
         {
             framework: 'React',
             percent: 25,
-            color: 'cornflowerblue'
+            color: 'cornflowerblue',
+            delay: 500
         },
         {
             framework: 'Angular',
-            percent: 20,
-            color: 'crimson'
+            percent: 40,
+            color: 'crimson',
+            delay: 250
         }
     ];
 </script>
 
 <!-- MarkUp -->
+<section>
 <h2>Frameworks rank</h2>
 
-<section>
-    {#each frameworksRank as { framework, percent, color }}
-        <SkillBar {framework} {percent} {color} />
+
+    {#each frameworksRank as { framework, percent, color, delay }}
+        <SkillBar {framework} {percent} {color} {delay} />
     {/each}
 </section>
 
