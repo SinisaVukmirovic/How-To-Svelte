@@ -40,6 +40,7 @@
 </script>
 
 <!-- MarkUp -->
+<h2>Sort Table</h2>
 <table id="myTable">
     <tr>
       {#each tableHeaders as header}

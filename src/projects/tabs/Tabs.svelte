@@ -18,6 +18,8 @@
 </script>
 
 <!-- MarkUp -->
+<h2>Tabs</h2>
+
 <section>
     {#each webpages as webpageObj}
         <button class="tablink" title={webpageObj.name} on:click={() => loadPage(webpageObj)}>{webpageObj.name}</button>
@@ -28,8 +30,8 @@
 
 <style>
     section {
-        margin: 3rem auto;
-        padding: 3rem 0;
+        margin: 0 auto;
+        /* padding: 3rem 0; */
     }
 /* Style tab links */
 .tablink {
