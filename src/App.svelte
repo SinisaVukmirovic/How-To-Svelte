@@ -23,6 +23,7 @@
 	import QuoteRotator from './projects/quote-rotator/QuoteRotator.svelte';
 	import Tabs from './projects/tabs/Tabs.svelte';
 	import SortTable from './projects/sorting-table/SortTable.svelte';
+	import SkillBars from './projects/skill-bars/SkillBars.svelte';
 
 </script>
 
@@ -64,6 +65,8 @@
 	<Tabs />
 
 	<SortTable />
+
+	<SkillBars />
 </main>
 
 <style>
