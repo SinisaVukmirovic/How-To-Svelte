@@ -18,9 +18,9 @@
 </script>
 
 <!-- MarkUp -->
+<section>
 <h2>Tabs</h2>
 
-<section>
     {#each webpages as webpageObj}
         <button class="tablink" title={webpageObj.name} on:click={() => loadPage(webpageObj)}>{webpageObj.name}</button>
     {/each}

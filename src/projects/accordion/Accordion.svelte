@@ -14,15 +14,17 @@
 </script>
 
 <!-- MarkUp -->
-<h2>Accordion</h2>
+<section>
+    <h2>Accordion</h2>
 
-{#if modalShowing}
-    <ModalMap on:click={() => modalShowing = false} mapUrl={continentMap} />
-{/if}
+    {#if modalShowing}
+        <ModalMap on:click={() => modalShowing = false} mapUrl={continentMap} />
+    {/if}
 
-{#each continents as { heading, content, learnurl, mapurl }}
-    <Continent {heading} {content} learnMore={learnurl} on:click={() => showModal(mapurl)} />
-{/each}
+    {#each continents as { heading, content, learnurl, mapurl }}
+        <Continent {heading} {content} learnMore={learnurl} on:click={() => showModal(mapurl)} />
+    {/each}
+</section>
 
 <style>
 

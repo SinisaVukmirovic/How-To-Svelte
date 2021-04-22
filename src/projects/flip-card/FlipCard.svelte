@@ -33,21 +33,23 @@
 </script>
 
 <!-- MarkUp -->
-<h2>Flip Card</h2>
+<section>
+  <h2>Flip Card</h2>
 
-<div class="flip-box">
-    <div class="flip-box-inner" class:flipCard={flipCard}>
+  <div class="flip-box">
+      <div class="flip-box-inner" class:flipCard={flipCard}>
 
-      <Card {avatar} {hero} {flipCard} {details} />
-      
-    </div>
-</div>
+        <Card {avatar} {hero} {flipCard} {details} />
+        
+      </div>
+  </div>
 
-<div class="btn-container">
-    <button class="arrow-btn" on:click={prevCard}>&#8592;</button>
-    <button on:click={toggleFlipCard}>{flipCard ? 'Hide Details' : 'Show Details'}</button>
-    <button class="arrow-btn" on:click={nextCard}>&#8594;</button>
-</div>
+  <div class="btn-container">
+      <button class="arrow-btn" on:click={prevCard}>&#8592;</button>
+      <button on:click={toggleFlipCard}>{flipCard ? 'Hide Details' : 'Show Details'}</button>
+      <button class="arrow-btn" on:click={nextCard}>&#8594;</button>
+  </div>
+</section>
 
 <style>
 .flip-box {

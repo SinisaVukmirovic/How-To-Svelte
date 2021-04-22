@@ -3,13 +3,15 @@
 </script>
 
 <!-- MarkUp -->
-<div class="demo-img">
-    {#each images as { id, imgUrl, name }}
-        <div class="demo-container">
-            <img {id} src={imgUrl} alt={name} on:click />
-        </div>
-    {/each}
-</div>
+<section>
+    <div class="demo-img">
+        {#each images as { id, imgUrl, name }}
+            <div class="demo-container">
+                <img {id} src={imgUrl} alt={name} on:click />
+            </div>
+        {/each}
+    </div>
+</section>
 
 <style>
     .demo-img {

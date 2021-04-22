@@ -51,18 +51,22 @@
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-<!-- MarkUp -->
-<h2>Typewritter Effect</h2>
 
-<h3>{typedCharacters}</h3>
+<section>
+    <!-- MarkUp -->
+    <h2>Typewritter Effect</h2>
 
-<form on:submit|preventDefault={typingOfInput}>
-    <input type="text" placeholder="Type out what you want.." bind:value={inputPhrase} />
-    <button disabled={isTyping}>Start</button>
-    <button on:click|preventDefault|stopPropagation={stopTyping}>Stop</button>
-</form>
+    <h3>{typedCharacters}</h3>
 
-<h3>{inputTextCharacters}</h3>
+    <form on:submit|preventDefault={typingOfInput}>
+        <input type="text" placeholder="Type out what you want.." bind:value={inputPhrase} />
+        <button disabled={isTyping}>Start</button>
+        <button on:click|preventDefault|stopPropagation={stopTyping}>Stop</button>
+    </form>
+
+    <h3>{inputTextCharacters}</h3>
+
+</section>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');

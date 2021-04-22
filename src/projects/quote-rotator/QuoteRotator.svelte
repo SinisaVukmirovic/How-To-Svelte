@@ -43,6 +43,7 @@
 </script>
 
 <!-- MarkUp -->
+<section>
 <h2>Quote Rotator</h2>
 
 <!-- Slideshow container -->
@@ -64,6 +65,7 @@
 
       <ToggleBtn bind:toggleOn on:change={handleAutoplay} />
   </div>
+</section>
 
 <style>
 /* Slideshow container */

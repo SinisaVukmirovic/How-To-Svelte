@@ -27,30 +27,32 @@
 </script>
 
 <!-- MarkUp -->
-<h2>Slideshow Gallery</h2>
-<!-- Container for the image gallery -->
-<div class="gallery">
-    <div class="container">
-        <Slide image={image.imgUrl}
-            attr={image.attribution}
-            alt={image.name} 
-            slideNumber={image.id + 1} 
-            totalSlides={images.length} 
-            imageShowing={image.id === imageShowIndex} 
-        />
+<section>
+    <h2>Slideshow Gallery</h2>
+    <!-- Container for the image gallery -->
+    <div class="gallery">
+        <div class="container">
+            <Slide image={image.imgUrl}
+                attr={image.attribution}
+                alt={image.name} 
+                slideNumber={image.id + 1} 
+                totalSlides={images.length} 
+                imageShowing={image.id === imageShowIndex} 
+            />
 
-        <Arrows on:nextSlide={nextSlide} on:prevSlide={prevSlide} />
+            <Arrows on:nextSlide={nextSlide} on:prevSlide={prevSlide} />
+        </div>
+
+        <Caption caption={image.name} />
+
+        <div class="thumbnails-row">
+            {#each images as { id, imgUrl, name }}
+                <Thumbnails thumbImg={imgUrl} altTag={name} selected={id === imageShowIndex} 
+                    on:click={() => showClickedSlide(id)} />
+            {/each}
+        </div>
     </div>
-
-    <Caption caption={image.name} />
-
-    <div class="thumbnails-row">
-        {#each images as { id, imgUrl, name }}
-            <Thumbnails thumbImg={imgUrl} altTag={name} selected={id === imageShowIndex} 
-                on:click={() => showClickedSlide(id)} />
-        {/each}
-    </div>
-</div>
+</section>
 
 <style>
 .gallery {

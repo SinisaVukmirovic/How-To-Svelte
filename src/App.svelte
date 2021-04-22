@@ -84,6 +84,10 @@
 		font-weight: 100;
 	}
 
+	:global(section) {
+		padding: 3rem 10%;
+	}
+
 	@media (min-width: 640px) {
 		main {
 			max-width: none;

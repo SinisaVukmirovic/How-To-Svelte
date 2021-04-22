@@ -48,7 +48,7 @@
     span {
         position: absolute;
         right: 5%;
-        top: 0;
+        top: 4rem;
         width: 40px;
         height: auto;
         cursor: pointer;

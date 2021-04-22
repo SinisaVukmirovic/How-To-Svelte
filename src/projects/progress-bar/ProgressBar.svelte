@@ -32,24 +32,26 @@
 </script>
 
 <!-- MarkUp -->
-<h2>Progress Bar</h2>
+<section>
+    <h2>Progress Bar</h2>
 
-<div class="msg-container">
-    {#if barWidth === 100}
-    <h3 id="completedMsg" in:fly={{ x: -300}} out:fly={{ x: 300}}>Your file has been uploaded!</h3>
-    {/if}
-</div>
+    <div class="msg-container">
+        {#if barWidth === 100}
+        <h3 id="completedMsg" in:fly={{ x: -300}} out:fly={{ x: 300}}>Your file has been uploaded!</h3>
+        {/if}
+    </div>
 
-<div id="myProgress">
-    <span>{barWidth}%</span>
-    <div id="myBar" style="width: {barWidth}%"></div>
-</div>
+    <div id="myProgress">
+        <span>{barWidth}%</span>
+        <div id="myBar" style="width: {barWidth}%"></div>
+    </div>
 
-<form on:submit|preventDefault={makeProgress}>
-    <input type="file" id="myFile" name="filename">
-    <button disabled={isActive}>Upload File</button>
-    <button on:click|preventDefault={resetProgress}>Cancel</button>
-</form>
+    <form on:submit|preventDefault={makeProgress}>
+        <input type="file" id="myFile" name="filename">
+        <button disabled={isActive}>Upload File</button>
+        <button on:click|preventDefault={resetProgress}>Cancel</button>
+    </form>
+</section>
 
 
 <style>

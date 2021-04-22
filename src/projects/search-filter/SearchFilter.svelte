@@ -16,6 +16,29 @@
     }
 </script>
 
+<!-- MarkUp -->
+<section>
+    <h2>Search Filter</h2>
+
+    <div class="dropdown">
+        <Button on:click={() => showMenu = !showMenu} {showMenu} />
+
+        <div id="myDropdown" class="dropdown-content" class:show={showMenu}>
+            <Input bind:inputValue on:keyup={filterFunction} />
+            <!-- menu -->
+            {#if filteredItems.length > 0}
+                {#each filteredItems as item}
+                    <MenuItem label={item} />
+                {/each}
+            {:else}
+                {#each menuItems as item}
+                    <MenuItem label={item} />
+                {/each}
+            {/if}
+        </div>
+    </div>
+</section>
+
 <style>
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
@@ -36,24 +59,3 @@
     /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
     .show {display:block;}
 </style>
-
-<!-- MarkUp -->
-<h2>Search Filter</h2>
-
-<div class="dropdown">
-    <Button on:click={() => showMenu = !showMenu} {showMenu} />
-
-    <div id="myDropdown" class="dropdown-content" class:show={showMenu}>
-        <Input bind:inputValue on:keyup={filterFunction} />
-        <!-- menu -->
-        {#if filteredItems.length > 0}
-            {#each filteredItems as item}
-                <MenuItem label={item} />
-            {/each}
-        {:else}
-            {#each menuItems as item}
-                <MenuItem label={item} />
-            {/each}
-        {/if}
-    </div>
-</div>

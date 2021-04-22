@@ -31,8 +31,7 @@
 
 <!-- MarkUp -->
 <section>
-<h2>Frameworks rank</h2>
-
+    <h2>Frameworks rank</h2>
 
     {#each frameworksRank as { framework, percent, color, delay }}
         <SkillBar {framework} {percent} {color} {delay} />

@@ -40,6 +40,7 @@
 </script>
 
 <!-- MarkUp -->
+<section>
 <h2>Sort Table</h2>
 <table id="myTable">
     <tr>
@@ -69,6 +70,7 @@
     {/each}
 
   </table>
+</section>
 
 <style>
 table {

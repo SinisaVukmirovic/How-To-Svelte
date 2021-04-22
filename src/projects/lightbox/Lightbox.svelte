@@ -55,6 +55,7 @@
 
 <style>
 .lightbox {
+    padding: 0;
     position: fixed;
     z-index: 11;
     left: 0;

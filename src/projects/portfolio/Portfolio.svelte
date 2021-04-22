@@ -14,6 +14,7 @@
 </script>
 
 <!-- MarkUp -->
+<section>
 <h2>Portfolio gallery</h2>
 
 <Buttons>
@@ -48,7 +49,7 @@
         {/if}
     {/each}
 </Gallery>
-
+</section>
 
 <style>
 
@@ -58,8 +59,6 @@
   width: 33.33%;
   display: none; /* Hide columns by default */
 }
-
-
 
 /* Content */
 .content {

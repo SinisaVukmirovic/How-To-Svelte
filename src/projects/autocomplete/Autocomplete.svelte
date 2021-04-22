@@ -71,21 +71,23 @@
 <!-- MarkUp -->
 <svelte:window on:keydown={navigateList} />
 
-<h2>Autocomplete</h2>
-<!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off" on:submit|preventDefault={submitValue}>
-    <div class="autocomplete" style="width:300px;">
-        <input id="myInputAutocomplete" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
+<section>
+    <h2>Autocomplete</h2>
+    <!--Make sure the form has the autocomplete function switched off:-->
+    <form autocomplete="off" on:submit|preventDefault={submitValue}>
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInputAutocomplete" type="text" name="myCountry" bind:value={inputValue} placeholder="Country.." on:input={filterCountries}>
 
-        <ul class="autocomplete-items-container">
-            {#each filteredCountries as country, i}
-                <Country countryName={country} highlighted={i === highlightIndex} on:click={() => setInputValue(country)} />
-            {/each}
-        </ul>
-    </div>
-    <input type="submit">
+            <ul class="autocomplete-items-container">
+                {#each filteredCountries as country, i}
+                    <Country countryName={country} highlighted={i === highlightIndex} on:click={() => setInputValue(country)} />
+                {/each}
+            </ul>
+        </div>
+        <input type="submit">
 
-</form>
+    </form>
+</section>
 
 <style>
     .autocomplete {
