@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
 
-    let phrase = 'React is NOT reactive! React is a terrible name for React.js. As engineers we should be offended by the way React is engeenered to work!';
+    let phrase = 'React is NOT reactive! React is a terrible name for React.js. As engineers we should be offended by the way React is engineered to work!';
     let typedCharacters = '';
     let index = 0;
     let typewritter;
