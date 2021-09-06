@@ -10,19 +10,19 @@
         },
         {
             framework: 'Vue',
-            percent: 70,
+            percent: 50,
             color: 'lime',
             delay: 750
         },
         {
             framework: 'React',
-            percent: 25,
+            percent: 20,
             color: 'cornflowerblue',
             delay: 500
         },
         {
             framework: 'Angular',
-            percent: 40,
+            percent: 30,
             color: 'crimson',
             delay: 250
         }
