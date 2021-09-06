@@ -43,7 +43,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="quote-rotator">
 <h2>Quote Rotator</h2>
 
 <!-- Slideshow container -->

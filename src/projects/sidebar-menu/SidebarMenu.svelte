@@ -34,10 +34,16 @@
   
   <div id="mySidenav" class="sidenav" class:openMenu={navOpen}>
       <a href="#closer" class="closebtn" on:click={handleMenu}>&times;</a>
-      <a href="#a">About</a>
-      <a href="#s">Services</a>
-      <a href="#c">Clients</a>
-      <a href="#d">Contact</a>
+      <a href="#filter">Filter and Autocomplete</a>
+      <a href="#slideshow">Slideshow Gallery</a>
+      <a href="#lightbox">Lightbox Gallery</a>
+      <a href="#accordion">Accordion</a>
+      <a href="#video-float">Video Float</a>
+      <a href="#typewritter">Typewritter Effect</a>
+      <a href="#portfolio">Portfolio gallery</a>
+      <a href="#quote-rotator">Quote Rotator</a>
+      <a href="#tabs">Tabs</a>
+      <a href="#sorting">Sorting Table</a>
   </div>
 </section>
 

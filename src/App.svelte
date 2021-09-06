@@ -42,7 +42,7 @@
 
 	<ProgressBar />
 
-	<h2>Lightbox</h2>
+	<h2 id="lightbox">lightbox</h2>
 	<button on:click={() => lightboxOpen = !lightboxOpen}>Lightbox</button>
 	{#if lightboxOpen}
 		<Lightbox on:click={() => lightboxOpen = !lightboxOpen} {imageShowIndex}/>

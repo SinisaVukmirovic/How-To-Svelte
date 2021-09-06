@@ -40,7 +40,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="sorting">
 <h2>Sort Table</h2>
 <table id="myTable">
     <tr>

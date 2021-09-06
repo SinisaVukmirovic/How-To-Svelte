@@ -52,7 +52,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-<section>
+<section id="typewritter">
     <!-- MarkUp -->
     <h2>Typewritter Effect</h2>
 

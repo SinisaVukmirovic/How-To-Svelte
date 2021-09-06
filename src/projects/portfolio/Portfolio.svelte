@@ -14,7 +14,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="portfolio">
 <h2>Portfolio gallery</h2>
 
 <Buttons>

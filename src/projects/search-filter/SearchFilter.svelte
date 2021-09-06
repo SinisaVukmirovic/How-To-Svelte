@@ -17,7 +17,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="filter">
     <h2>Search Filter</h2>
 
     <div class="dropdown">

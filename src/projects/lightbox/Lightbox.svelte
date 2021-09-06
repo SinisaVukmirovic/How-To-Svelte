@@ -27,7 +27,8 @@
 </script>
 
 <!-- MarkUp -->
-<section class="lightbox" in:fly={{ x:-500, duration: 500 }} out:fade={{duration: 500 }}>
+<section class="lightbox" 
+    in:fly={{ x:-500, duration: 500 }} out:fade={{duration: 500 }}>
     <span class="close cursor" on:click>&times;</span>
     <div class="gallery">
         <div class="container">

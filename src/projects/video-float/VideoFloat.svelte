@@ -10,7 +10,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<section>
+<section id="video-float">
     <!-- MarkUp -->
     <h2>Video Float</h2>
     <VideoPlayer {floatVideo} />

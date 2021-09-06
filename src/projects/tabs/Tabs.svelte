@@ -18,7 +18,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="tabs">
 <h2>Tabs</h2>
 
     {#each webpages as webpageObj}

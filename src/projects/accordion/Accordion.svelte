@@ -14,7 +14,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="accordion">
     <h2>Accordion</h2>
 
     {#if modalShowing}

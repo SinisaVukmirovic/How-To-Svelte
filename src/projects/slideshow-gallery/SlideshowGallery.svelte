@@ -27,7 +27,7 @@
 </script>
 
 <!-- MarkUp -->
-<section>
+<section id="slideshow">
     <h2>Slideshow Gallery</h2>
     <!-- Container for the image gallery -->
     <div class="gallery">
