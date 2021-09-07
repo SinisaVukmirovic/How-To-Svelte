@@ -19,7 +19,7 @@
 <!-- MarkUp -->
 <div class="container">
     <span class="framework">{framework}</span>
-  <div class="skills" style="width: {$progress}%; background-color: {color}">{percent}%</div>
+    <div class="skills" style="width: {$progress}%; background-color: {color}">{percent}%</div>
 </div>
 
 <style>
@@ -45,8 +45,9 @@
   text-align: right; /* Right-align text */
   padding-top: 10px; /* Add top padding */
   padding-bottom: 10px; /* Add bottom padding */
-  padding-right: 2rem;
   color: white; /* White text color */
+  font-weight: bold;
+  text-align: center;
 }
 
 </style>
